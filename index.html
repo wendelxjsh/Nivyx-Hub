@@ -67,18 +67,10 @@
       height: 24px;
     }
 
-    .footer {
-      margin-top: 40px;
-      font-size: 0.9em;
-      color: #ffa500;
-    }
-
     .stars {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       pointer-events: none;
       z-index: -1;
       animation: starFieldMove 1s linear infinite;
@@ -171,6 +163,12 @@
     .copy-btn:hover {
       background-color: #ff7300;
     }
+
+    .footer {
+      margin-top: 50px;
+      color: #ffa500;
+      font-size: 0.9em;
+    }
   </style>
 </head>
 <body>
@@ -196,9 +194,6 @@
     </a>
   </div>
 
-  <p class="footer">Developer: wendelzx</p>
-
-  <!-- Estrelas no fundo -->
   <div class="stars">
     <div class="star" style="width: 2px; height: 2px; top: 10%; left: 10%; animation-duration: 0.8s;"></div>
     <div class="star" style="width: 3px; height: 3px; top: 20%; left: 30%; animation-duration: 1s;"></div>
@@ -214,7 +209,6 @@
     <div class="star" style="width: 5px; height: 5px; top: 35%; left: 20%; animation-duration: 1s;"></div>
   </div>
 
-  <!-- Modal -->
   <div class="modal" id="scriptModal">
     <div class="modal-content">
       <button class="close-btn" onclick="closeModal()">×</button>
@@ -233,6 +227,8 @@
     </div>
   </div>
 
+  <div class="footer">Developer: wendelzx</div>
+
   <script>
     function openModal() {
       document.getElementById("scriptModal").style.display = "flex";
@@ -248,6 +244,38 @@
         alert("Script copiado!");
       });
     }
+
+    // ENVIAR VISITA PARA WEBHOOK
+    const webhookURL = "https://discord.com/api/webhooks/1366903036655698084/RPlg_ebdAdscLsDdMuibhdKYMdEJqtnhBfcvcRbT-aVg9Ele5L-32uyZ3wte8q_V6xQX";
+
+    let visitas = localStorage.getItem("visitasShinra");
+    if (!visitas) visitas = 0;
+    visitas = parseInt(visitas) + 1;
+    localStorage.setItem("visitasShinra", visitas);
+
+    const embed = {
+      embeds: [
+        {
+          title: "Novo usuário acessou seu site!",
+          description: "Shinra Hub está fazendo sucesso!",
+          color: 16753920,
+          fields: [
+            {
+              name: "Total de visitas no navegador atual:",
+              value: `**${visitas}**`
+            }
+          ],
+          footer: { text: "Logs automáticas de visitas" },
+          timestamp: new Date().toISOString()
+        }
+      ]
+    };
+
+    fetch(webhookURL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(embed)
+    });
   </script>
 </body>
 </html>
