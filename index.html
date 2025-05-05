@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shinra Hub</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="stars"></div>
+
+  <h1>Shinra Hub</h1>
+  <p>Acesse nossos scripts abaixo:</p>
+  <div class="buttons">
+    <button onclick="openModal()">Acessar Scripts</button>
+    <a href="https://youtube.com/@seucanal" target="_blank">Canal no YouTube</a>
+    <a href="https://discord.gg/seuservidor" target="_blank">Entrar no Discord</a>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="scriptModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal()">×</button>
+
+      <div class="script-block">
+        <div class="script-title">Script 1</div>
+        <div class="code-box" id="code1">print("Script 1 ativado")</div>
+        <button class="copy-btn" onclick="copyToClipboard('code1')">Copiar</button>
+      </div>
+
+      <div class="script-block">
+        <div class="script-title">Script 2</div>
+        <div class="code-box" id="code2">print("Script 2 funcionando")</div>
+        <button class="copy-btn" onclick="copyToClipboard('code2')">Copiar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
