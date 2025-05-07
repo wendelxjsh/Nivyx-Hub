@@ -1,4 +1,3 @@
-/* Estilo global */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -74,7 +73,6 @@ p {
   line-height: 1.6;
 }
 
-/* Botões de script com imagem */
 .script-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -83,26 +81,22 @@ p {
 }
 
 .script-buttons button {
-  background-size: cover;
-  background-position: center;
-  width: 200px;
-  height: 120px;
+  background-color: #00aaff;
   border: none;
-  color: white;
-  font-weight: bold;
+  color: #fff;
+  padding: 12px 20px;
   font-size: 1em;
-  border-radius: 12px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s;
-  text-shadow: 1px 1px 3px black;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .script-buttons button:hover {
-  transform: scale(1.05);
+  background-color: #0088cc;
+  transform: translateY(-2px);
 }
 
-/* Modal */
 .modal {
   display: none;
   position: fixed;
@@ -125,7 +119,6 @@ p {
   max-width: 600px;
   position: relative;
   animation: fadeIn 0.4s ease-in;
-  box-shadow: 0 0 15px #00aaff88;
 }
 
 .close {
@@ -137,18 +130,8 @@ p {
   cursor: pointer;
 }
 
-#scriptContent {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  background-color: #000d1a;
-  padding: 15px;
-  border-radius: 8px;
-  color: #ffffff;
-  margin-bottom: 20px;
-}
-
-/* Botão de copiar */
-#copyButton {
+.copy-btn {
+  margin-top: 20px;
   padding: 10px 20px;
   background: #00aaff;
   color: white;
@@ -159,12 +142,11 @@ p {
   transition: background 0.3s, transform 0.2s;
 }
 
-#copyButton:hover {
+.copy-btn:hover {
   background: #0088cc;
   transform: translateY(-2px);
 }
 
-/* Botão do Discord */
 .botao-discord {
   display: inline-flex;
   align-items: center;
@@ -192,26 +174,6 @@ p {
   filter: brightness(0) invert(1);
 }
 
-/* Desenvolvedor */
-#desenvolvedor {
-  background-color: #0d0d0d;
-  text-align: center;
-}
-
-#desenvolvedor img {
-  width: 200px;
-  max-width: 90%;
-  border-radius: 20px;
-  margin-top: 20px;
-}
-
-#desenvolvedor h3 {
-  font-size: 2em;
-  color: #00aaff;
-  margin-top: 10px;
-}
-
-/* Rodapé */
 footer {
   background: #000;
   text-align: center;
@@ -220,7 +182,6 @@ footer {
   color: #888;
 }
 
-/* Animações */
 @keyframes slideDown {
   from { transform: translateY(-100%); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
@@ -229,4 +190,4 @@ footer {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
-  }
+}
