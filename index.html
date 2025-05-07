@@ -1,116 +1,115 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lua Devs</title>
-  <style>
-    /* estilos anteriores mantidos */
-    .dev-section {
-      text-align: center;
-      background: #101010;
-      padding: 60px 40px;
-      animation: fadeIn 2s ease-in;
-    }
-    .dev-section img {
-      max-width: 100%;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-    .dev-section h3 {
-      font-size: 2.2em;
-      color: #00aaff;
-    }
-    .script-buttons button {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .script-buttons button img {
-      width: 24px;
-      height: 24px;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shinra Hub</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>  <header>
+<body>
+
+  <header>
     <h1>Shinra Hub</h1>
     <nav>
-      <a href="#sobre">Sobre</a>
-      <a href="#servicos">Serviços</a>
-      <a href="#scripts">Scripts</a>
-      <a href="#desenvolvedor">Desenvolvedor</a>
-      <a href="#contato">Contato</a>
+      <a href="#">Sobre</a>
+      <a href="#">Serviços</a>
+      <a href="#">Scripts</a>
+      <a href="#">Desenvolvedor</a>
+      <a href="#">Contato</a>
     </nav>
-    <div class="logo-container">
-      <img src="logo.png" alt="Logo Lua Devs" class="logo-img">
-    </div>
-  </header>  <section id="sobre" class="section-dark">
+  </header>
+
+  <div class="logo-container">
+    <img src="logo.png" alt="Logo Lua Devs" class="logo-img">
+  </div>
+
+  <section class="section-dark">
     <h2>Quem Somos</h2>
     <p>Somos um time apaixonado por automação e desenvolvimento de scripts Lua para jogos como Roblox, e muito mais.</p>
-  </section>  <section id="servicos" class="section-blue">
+  </section>
+
+  <section class="section-light">
     <h2>O Que Fazemos</h2>
     <p>Desenvolvimento de scripts personalizados, sistemas de farm automático, UIs modernas e muito mais.</p>
-  </section>  <section id="scripts" class="section-dark">
+  </section>
+
+  <section class="section-dark">
     <h2>Scripts</h2>
     <p>Clique em um botão para visualizar e copiar um script:</p>
+
     <div class="script-buttons">
-      <button onclick="openModal(1)"><img src="icon1.png"/> Shinra Hub : Blox fruits</button>
-      <button onclick="openModal(2)"><img src="icon2.png"/> Shinra Hub : Blue lock Rivais</button>
-      <button onclick="openModal(3)"><img src="icon3.png"/> Shinra Hub : Brokhavem RP</button>
-      <button onclick="openModal(4)"><img src="icon4.png"/> Shinra Hub : Meme Sea</button>
+      <button onclick="openModal('bloxfruits')">Shinra Hub : Blox Fruits</button>
+      <button onclick="openModal('bluelock')">Shinra Hub : Blue Lock Rivais</button>
+      <button onclick="openModal('brokhavem')">Shinra Hub : Brokhavem RP</button>
+      <button onclick="openModal('memesea')">Shinra Hub : Meme Sea</button>
     </div>
-  </section>  <section id="desenvolvedor" class="dev-section">
-    <img src="sua-imagem.jpg" alt="Desenvolvedor Wendelzx">
-    <h3>Wendelzx</h3>
-  </section>  <section id="contato" class="section-blue">
+  </section>
+
+  <section class="section-light">
+    <h3>Desenvolvedor: Wendelzx</h3>
+  </section>
+
+  <section class="section-dark">
     <h2>Fale Conosco</h2>
-    <p>Entre no nosso server do Discord!:</p>
-    <a href="https://discord.gg/seulink" target="_blank" class="botao-discord">
-      <img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/discord.svg" alt="Discord" class="icon-discord">
-      Entrar no Discord
+    <a href="https://discord.gg/seulink" target="_blank" class="discord-button">
+      <img src="discord-icon.png" alt="Discord" class="icon-discord"> Entrar no Discord
     </a>
-  </section>  <footer>
-    &copy; 2025 Shinra Hub — Todos os direitos reservados.
-  </footer>  <!-- Modais de Scripts -->  <div class="modal" id="modal1">
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Shinra Hub — Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Modal para mostrar os scripts -->
+  <div id="modal" class="modal">
     <div class="modal-content">
-      <span class="close" onclick="closeModal(1)">&times;</span>
-      <h3>Shinra Hub : Blox Fruits</h3>
-      <pre id="code1">print("Olá, mundo!")</pre>
-      <button class="copy-btn" onclick="copyToClipboard('code1')">Copiar</button>
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="scriptTitle">Título do Script</h2>
+      <pre id="scriptContent">Conteúdo do script...</pre>
+      <button id="copyButton" onclick="copyToClipboard()">Copiar</button>
     </div>
-  </div>  <div class="modal" id="modal2">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal(2)">&times;</span>
-      <h3>Shinra Hub : Blue Lock Rivais</h3>
-      <pre id="code2">while true do print("Loop infinito") wait(1) end</pre>
-      <button class="copy-btn" onclick="copyToClipboard('code2')">Copiar</button>
-    </div>
-  </div>  <div class="modal" id="modal3">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal(3)">&times;</span>
-      <h3>Shinra Hub : Brokhavem RP</h3>
-      <pre id="code3">game.Players.LocalPlayer.Character:BreakJoints()</pre>
-      <button class="copy-btn" onclick="copyToClipboard('code3')">Copiar</button>
-    </div>
-  </div>  <div class="modal" id="modal4">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal(4)">&times;</span>
-      <h3>SHinra Hub : Meme Sea</h3>
-      <pre id="code4">game:GetService("TeleportService"):Teleport(1234567890)</pre>
-      <button class="copy-btn" onclick="copyToClipboard('code4')">Copiar</button>
-    </div>
-  </div>  <script>
-    function openModal(n) {
-      document.getElementById('modal' + n).style.display = 'flex';
+  </div>
+
+  <script>
+    // Função para abrir o modal com o script correspondente
+    function openModal(scriptId) {
+      const modal = document.getElementById('modal');
+      const title = document.getElementById('scriptTitle');
+      const content = document.getElementById('scriptContent');
+
+      if (scriptId === 'bloxfruits') {
+        title.textContent = 'Shinra Hub : Blox Fruits';
+        content.textContent = 'print("Olá, mundo!")';
+      } else if (scriptId === 'bluelock') {
+        title.textContent = 'Shinra Hub : Blue Lock Rivais';
+        content.textContent = 'while true do print("Loop infinito") wait(1) end';
+      } else if (scriptId === 'brokhavem') {
+        title.textContent = 'Shinra Hub : Brokhavem RP';
+        content.textContent = 'game.Players.LocalPlayer.Character:BreakJoints()';
+      } else if (scriptId === 'memesea') {
+        title.textContent = 'Shinra Hub : Meme Sea';
+        content.textContent = 'game:GetService("TeleportService"):Teleport(1234567890)';
+      }
+
+      modal.style.display = 'flex';
     }
 
-    function closeModal(n) {
-      document.getElementById('modal' + n).style.display = 'none';
+    // Função para fechar o modal
+    function closeModal() {
+      const modal = document.getElementById('modal');
+      modal.style.display = 'none';
     }
 
-    function copyToClipboard(id) {
-      const text = document.getElementById(id).innerText;
-      navigator.clipboard.writeText(text);
-      alert("Script copiado!");
+    // Função para copiar o conteúdo do script para a área de transferência
+    function copyToClipboard() {
+      const content = document.getElementById('scriptContent');
+      const range = document.createRange();
+      range.selectNode(content);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      document.execCommand('copy');
     }
-  </script></body>
+  </script>
+
+</body>
 </html>
