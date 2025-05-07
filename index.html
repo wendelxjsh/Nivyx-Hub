@@ -1,281 +1,116 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html><html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shinra Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lua Devs</title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #000, #1a1a1a);
-      font-family: 'Segoe UI', sans-serif;
-      color: #ffa500;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
+    /* estilos anteriores mantidos */
+    .dev-section {
       text-align: center;
-      overflow: hidden;
-      position: relative;
+      background: #101010;
+      padding: 60px 40px;
+      animation: fadeIn 2s ease-in;
     }
-
-    .logo-box h1 {
-      color: #ffa500;
-      font-size: 3.5em;
-      margin: 0;
-      animation: swing 4s ease-in-out infinite;
+    .dev-section img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
     }
-
-    @keyframes swing {
-      0%, 100% { transform: rotate(0deg); }
-      50% { transform: rotate(10deg); }
+    .dev-section h3 {
+      font-size: 2.2em;
+      color: #00aaff;
     }
-
-    .buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-top: 30px;
-    }
-
-    .buttons a, .buttons button {
+    .script-buttons button {
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 10px;
-      background-color: #ffa500;
-      color: #000;
-      padding: 15px 25px;
-      border: 2px solid #000;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 1em;
-      cursor: pointer;
-      transition: 0.3s;
-      text-decoration: none;
     }
-
-    .buttons a:hover, .buttons button:hover {
-      background-color: #ff7300;
-      transform: scale(1.05);
-    }
-
-    .buttons img {
+    .script-buttons button img {
       width: 24px;
       height: 24px;
     }
-
-    .stars {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      z-index: -1;
-      animation: starFieldMove 1s linear infinite;
-    }
-
-    .star {
-      position: absolute;
-      background-color: white;
-      border-radius: 50%;
-      animation: starMove 2s linear infinite;
-    }
-
-    @keyframes starMove {
-      0% { transform: translateX(-100%) translateY(-100%); opacity: 1; }
-      100% { transform: translateX(100%) translateY(100%); opacity: 0; }
-    }
-
-    @keyframes starFieldMove {
-      0% { top: 0; }
-      100% { top: -100%; }
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      background-color: #111;
-      border: 2px solid #ffa500;
-      padding: 20px;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 400px;
-      position: relative;
-      animation: fadeIn 0.3s ease;
-    }
-
-    @keyframes fadeIn {
-      from { transform: translateY(-20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      background: none;
-      border: none;
-      color: #ffa500;
-      font-size: 1.5em;
-      cursor: pointer;
-    }
-
-    .script-block {
-      margin: 20px 0;
-      text-align: left;
-    }
-
-    .script-title {
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    .code-box {
-      background-color: #222;
-      color: #0f0;
-      padding: 10px;
-      border-radius: 6px;
-      font-family: monospace;
-      font-size: 0.9em;
-      overflow-x: auto;
-    }
-
-    .copy-btn {
-      margin-top: 5px;
-      background-color: #ffa500;
-      border: none;
-      padding: 8px 15px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .copy-btn:hover {
-      background-color: #ff7300;
-    }
-
-    .footer {
-      margin-top: 50px;
-      color: #ffa500;
-      font-size: 0.9em;
-    }
   </style>
 </head>
-<body>
-  <div class="logo-box">
+<body>  <header>
     <h1>Shinra Hub</h1>
-  </div>
-  <p>Acesse nossos scripts aqui:</p>
-
-  <div class="buttons">
-    <button onclick="openModal()">
-      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828774.png" alt="Scripts">
-      Acessar Scripts
-    </button>
-
-    <a href="https://youtube.com/@shinra_hub?si=khkG2u7BwWImivR_" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
-      YouTube
-    </a>
-
-    <a href="https://discord.gg/YyXcnEakC9" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord">
-      Discord
-    </a>
-  </div>
-
-  <div class="stars">
-    <div class="star" style="width: 2px; height: 2px; top: 10%; left: 10%; animation-duration: 0.8s;"></div>
-    <div class="star" style="width: 3px; height: 3px; top: 20%; left: 30%; animation-duration: 1s;"></div>
-    <div class="star" style="width: 2px; height: 2px; top: 30%; left: 50%; animation-duration: 0.7s;"></div>
-    <div class="star" style="width: 4px; height: 4px; top: 40%; left: 60%; animation-duration: 1.2s;"></div>
-    <div class="star" style="width: 3px; height: 3px; top: 50%; left: 70%; animation-duration: 0.9s;"></div>
-    <div class="star" style="width: 5px; height: 5px; top: 60%; left: 20%; animation-duration: 0.6s;"></div>
-    <div class="star" style="width: 2px; height: 2px; top: 70%; left: 80%; animation-duration: 0.5s;"></div>
-    <div class="star" style="width: 3px; height: 3px; top: 80%; left: 90%; animation-duration: 1.1s;"></div>
-    <div class="star" style="width: 4px; height: 4px; top: 90%; left: 40%; animation-duration: 1.3s;"></div>
-    <div class="star" style="width: 3px; height: 3px; top: 15%; left: 60%; animation-duration: 0.7s;"></div>
-    <div class="star" style="width: 2px; height: 2px; top: 25%; left: 80%; animation-duration: 0.8s;"></div>
-    <div class="star" style="width: 5px; height: 5px; top: 35%; left: 20%; animation-duration: 1s;"></div>
-  </div>
-
-  <div class="modal" id="scriptModal">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal()">×</button>
-
-      <div class="script-block">
-        <div class="script-title">Shinra Hub : Blox Fruits</div>
-        <div class="code-box" id="code1">Still in testing phases</div>
-        <button class="copy-btn" onclick="copyToClipboard('code1')">Copiar</button>
-      </div>
-
-      <div class="script-block">
-        <div class="script-title">Shina Hub : Brokhavem</div>
-        <div class="code-box" id="code2">Still in testing phases</div>
-        <button class="copy-btn" onclick="copyToClipboard('code2')">Copiar</button>
-      </div>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#scripts">Scripts</a>
+      <a href="#desenvolvedor">Desenvolvedor</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="logo-container">
+      <img src="logo.png" alt="Logo Lua Devs" class="logo-img">
     </div>
-  </div>
-
-  <div class="footer">Developer: wendelzx</div>
-
-  <script>
-    function openModal() {
-      document.getElementById("scriptModal").style.display = "flex";
+  </header>  <section id="sobre" class="section-dark">
+    <h2>Quem Somos</h2>
+    <p>Somos um time apaixonado por automação e desenvolvimento de scripts Lua para jogos como Roblox, e muito mais.</p>
+  </section>  <section id="servicos" class="section-blue">
+    <h2>O Que Fazemos</h2>
+    <p>Desenvolvimento de scripts personalizados, sistemas de farm automático, UIs modernas e muito mais.</p>
+  </section>  <section id="scripts" class="section-dark">
+    <h2>Scripts</h2>
+    <p>Clique em um botão para visualizar e copiar um script:</p>
+    <div class="script-buttons">
+      <button onclick="openModal(1)"><img src="icon1.png"/> Shinra Hub : Blox fruits</button>
+      <button onclick="openModal(2)"><img src="icon2.png"/> Shinra Hub : Blue lock Rivais</button>
+      <button onclick="openModal(3)"><img src="icon3.png"/> Shinra Hub : Brokhavem RP</button>
+      <button onclick="openModal(4)"><img src="icon4.png"/> Shinra Hub : Meme Sea</button>
+    </div>
+  </section>  <section id="desenvolvedor" class="dev-section">
+    <img src="sua-imagem.jpg" alt="Desenvolvedor Wendelzx">
+    <h3>Wendelzx</h3>
+  </section>  <section id="contato" class="section-blue">
+    <h2>Fale Conosco</h2>
+    <p>Entre no nosso server do Discord!:</p>
+    <a href="https://discord.gg/seulink" target="_blank" class="botao-discord">
+      <img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/discord.svg" alt="Discord" class="icon-discord">
+      Entrar no Discord
+    </a>
+  </section>  <footer>
+    &copy; 2025 Shinra Hub — Todos os direitos reservados.
+  </footer>  <!-- Modais de Scripts -->  <div class="modal" id="modal1">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal(1)">&times;</span>
+      <h3>Shinra Hub : Blox Fruits</h3>
+      <pre id="code1">print("Olá, mundo!")</pre>
+      <button class="copy-btn" onclick="copyToClipboard('code1')">Copiar</button>
+    </div>
+  </div>  <div class="modal" id="modal2">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal(2)">&times;</span>
+      <h3>Shinra Hub : Blue Lock Rivais</h3>
+      <pre id="code2">while true do print("Loop infinito") wait(1) end</pre>
+      <button class="copy-btn" onclick="copyToClipboard('code2')">Copiar</button>
+    </div>
+  </div>  <div class="modal" id="modal3">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal(3)">&times;</span>
+      <h3>Shinra Hub : Brokhavem RP</h3>
+      <pre id="code3">game.Players.LocalPlayer.Character:BreakJoints()</pre>
+      <button class="copy-btn" onclick="copyToClipboard('code3')">Copiar</button>
+    </div>
+  </div>  <div class="modal" id="modal4">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal(4)">&times;</span>
+      <h3>SHinra Hub : Meme Sea</h3>
+      <pre id="code4">game:GetService("TeleportService"):Teleport(1234567890)</pre>
+      <button class="copy-btn" onclick="copyToClipboard('code4')">Copiar</button>
+    </div>
+  </div>  <script>
+    function openModal(n) {
+      document.getElementById('modal' + n).style.display = 'flex';
     }
 
-    function closeModal() {
-      document.getElementById("scriptModal").style.display = "none";
+    function closeModal(n) {
+      document.getElementById('modal' + n).style.display = 'none';
     }
 
     function copyToClipboard(id) {
-      const code = document.getElementById(id).textContent;
-      navigator.clipboard.writeText(code).then(() => {
-        alert("Script copiado!");
-      });
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text);
+      alert("Script copiado!");
     }
-
-    // ENVIAR VISITA PARA WEBHOOK
-    const webhookURL = "https://discord.com/api/webhooks/1366903036655698084/RPlg_ebdAdscLsDdMuibhdKYMdEJqtnhBfcvcRbT-aVg9Ele5L-32uyZ3wte8q_V6xQX";
-
-    let visitas = localStorage.getItem("visitasShinra");
-    if (!visitas) visitas = 0;
-    visitas = parseInt(visitas) + 1;
-    localStorage.setItem("visitasShinra", visitas);
-
-    const embed = {
-      embeds: [
-        {
-          title: "Novo usuário acessou seu site!",
-          description: "Shinra Hub está fazendo sucesso!",
-          color: 16753920,
-          fields: [
-            {
-              name: "Total de visitas no navegador atual:",
-              value: `**${visitas}**`
-            }
-          ],
-          footer: { text: "Logs automáticas de visitas" },
-          timestamp: new Date().toISOString()
-        }
-      ]
-    };
-
-    fetch(webhookURL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(embed)
-    });
-  </script>
-</body>
+  </script></body>
 </html>
