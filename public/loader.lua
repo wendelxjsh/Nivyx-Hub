@@ -1,29 +1,20 @@
-local Players = game:GetService("Players")
-local player = Players.LocalPlayer
+local MapName = game.PlaceId  -- ou outro identificador do mapa
 
--- Criar GUI
-local gui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
-gui.ResetOnSpawn = false
+-- Tabela com scripts por mapa
+local MapScripts = {
+    [1240123653] = function()  -- ID do mapa 1
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/wendelxjsh/wendelxjsh/refs/heads/main/obf_bBdD8d8Smq4rd1y5sN98221OlsH36bDNFV1324Lni53J26c8SkZsl0QDy2tFTI13.lua%20(1).txt'))()
+    end,
 
--- Imagem de tela cheia
-local img = Instance.new("ImageLabel", gui)
-img.Size = UDim2.new(1, 0, 1, 0)
-img.Position = UDim2.new(0, 0, 0, 0)
-img.Image = "rbxassetid://117784353881695"
-img.BackgroundTransparency = 1
-img.ImageTransparency = 0
-img.ScaleType = Enum.ScaleType.Stretch
+    [987654321] = function()  -- ID do mapa 2
+        print("Executando script do mapa 2")
+        -- Código específico do mapa 2
+    end,
+}
 
--- Música com loop
-local sound = Instance.new("Sound", workspace)
-sound.SoundId = "rbxassetid://91299590639144"
-sound.Volume = 2
-sound.Looped = true
-sound:Play()
-
--- Esperar 5 segundos
-wait(5)
-
--- Sumir com a imagem, mas manter a música
-img:Destroy()
-gui:Destroy()
+-- Verifica e executa o script correspondente
+if MapScripts[MapName] then
+    MapScripts[MapName]()
+else
+    warn("Nenhum script definido para este mapa: " .. tostring(MapName))
+end
