@@ -6,9 +6,8 @@ local MapScripts = {
     loadstring(game:HttpGet('https://raw.githubusercontent.com/wendelxjsh/wendelxjsh/refs/heads/main/obf_bBdD8d8Smq4rd1y5sN98221OlsH36bDNFV1324Lni53J26c8SkZsl0QDy2tFTI13.lua%20(1).txt'))()
     end,
 
-    [987654321] = function()  -- ID do mapa 2
-        print("Executando script do mapa 2")
-        -- Código específico do mapa 2
+    [1632210982] = function()  -- ID do mapa 2
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/wendelxjsh/wendelxjsh/refs/heads/main/obf_bBdD8d8Smq4rd1y5sN98221OlsH36bDNFV1324Lni53J26c8SkZsl0QDy2tFTI13.lua%20(1).txt'))()
     end,
 }
 
