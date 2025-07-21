@@ -1,239 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Shinra Hub - Scripts</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body, html {
-      font-family: 'Segoe UI', sans-serif;
-      height: 100%;
-      background-color: #000;
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    /* Fundo de vídeo */
-    .background-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      min-height: 100%;
-      z-index: -2;
-      object-fit: cover;
-    }
-
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.75);
-      z-index: -1;
-    }
-
-    header {
-      background-color: transparent;
-      padding: 20px 50px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      animation: slideTop 1s ease forwards;
-    }
-
-    .logo {
-      font-size: 2rem;
-      color: #00aaff;
-      font-weight: bold;
-    }
-
-    .owner {
-      font-size: 1rem;
-      color: #ccc;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 100px 20px 40px;
-      animation: fadeIn 1.5s ease forwards;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      color: #00aaff;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: #eee;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .categories {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      padding: 60px 20px;
-    }
-
-    .category {
-      background-color: #1a1a1aee;
-      border: 1px solid #00aaff30;
-      padding: 30px;
-      border-radius: 15px;
-      width: 300px;
-      transition: transform 0.3s, box-shadow 0.3s;
-      text-align: center;
-    }
-
-    .category:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 20px #00aaff80;
-    }
-
-    .category img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    .category h3 {
-      color: #00aaff;
-      margin-bottom: 10px;
-      font-size: 1.5rem;
-    }
-
-    .category p {
-      color: #ccc;
-      font-size: 1rem;
-      margin-bottom: 20px;
-    }
-
-    .category a button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 30px;
-      background-color: #00aaff;
-      color: white;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: transform 0.3s;
-    }
-
-    .category a button:hover {
-      transform: scale(1.05);
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #888;
-      background-color: transparent;
-    }
-
-    @keyframes slideTop {
-      from {
-        opacity: 0;
-        transform: translateY(-50px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .categories {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>OtakuFlix</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <h1>Otaku<span>Flix</span></h1>
+    </header>
 
-  <!-- Vídeo de fundo -->
-  <video autoplay muted loop class="background-video">
-    <source src="https://cdn.pixabay.com/vimeo/761781163/blue-flame-1280x720.mp4?width=640&hash=3de1b2de5c28ab1766fc460816a5e6f94909d1e2" type="video/mp4">
-    Seu navegador não suporta vídeo.
-  </video>
-  <div class="overlay"></div>
-
-  <header>
-    <div class="logo">Shinra Hub</div>
-    <div class="owner">Desenvolvido por @wendel_fazcash</div>
-  </header>
-
-  <section class="hero">
-    <h1 id="animated-text">Shinra Hub</h1>
-    <p>Quer dominar o jogo do seu jeito? Com nossos scripts exclusivos para Brookhaven, Blox fruits, Blue Lock rivais, você vai ter controle total da diversão!</p>
-  </section>
-
-  <section class="categories">
-    <div class="category">
-      <img src="https://cdn.discordapp.com/attachments/1365073910881587220/1369793772162126007/Screenshot_20250223_185439_Roblox-1.jpg?ex=681d275c&is=681bd5dc&hm=1b1b6dea724ea649e3c2c38f8ba8860732cc0f9d1338f63db5a39bacf6db3e39&" alt="Shinra Hub">
-      <h3>Shinra Hub : Blox Fruits</h3>
-      <p>Auto Farm Level inteligente, Farm de Boss, Haki, Frutas e muito mais
- Sistema anti-ban seguro e otimizado</p>
-      <a href="https://seulink1.com"><button>Adquirir Script</button></a>
+    <div class="anime-list">
+        <div class="anime-card">
+            <img src="https://i.imgur.com/zlY5b8T.jpg" alt="Naruto">
+            <h2>Naruto</h2>
+            <a href="assistir.html" class="btn">Assistir</a>
+        </div>
+        <div class="anime-card">
+            <img src="https://i.imgur.com/sbCCF1K.jpg" alt="One Piece">
+            <h2>One Piece</h2>
+            <a href="assistir.html" class="btn">Assistir</a>
+        </div>
+        <div class="anime-card">
+            <img src="https://i.imgur.com/1lUNIb3.jpg" alt="Dragon Ball">
+            <h2>Dragon Ball</h2>
+            <a href="assistir.html" class="btn">Assistir</a>
+        </div>
     </div>
-    <div class="category">
-      <img src="https://cdn.discordapp.com/attachments/1365073910881587220/1369793771918590122/images_30.jpg?ex=681d275c&is=681bd5dc&hm=b473160fdc09469afaf3c700ecfde7a6a87ba993441467bc7b00a65abe00a123&" alt="Shinra Hub">
-      <h3>Shinra Hub : Blue Lock Rivais</h3>
-      <p>Auto Farm, Auto goal, Auto Win em partidas, evolução rápida Atualizado para as novas versões do jogo</p>
-      <a href="https://seulink2.com"><button>Adquirir Script</button></a>
-    </div>
-    <div class="category">
-      <img src="https://cdn.discordapp.com/attachments/1365073910881587220/1369793772556386424/download_15.jpg?ex=681d275c&is=681bd5dc&hm=34e8aed4e54853a9cd50679a1b3cd018423c9b6b171f6d06685b4fdef5d43c77&" alt="Shinra Hub : Brokhavem RP">
-      <h3>Shinra Hub : Brokhavem RP</h3>
-      <p>Comandos rápidos (fly, speed, troll, troll gui)
-Visual Mod (mude o mapa como quiser!)
-Spawn de carros e itens instantâneo Personalização de personagem avançada
-Sistema de Troll, seguro e fácil de usar.</p>
-      <a href="https://seulink3.com"><button>Adquirir Script</button></a>
-    </div>
-  </section>
-
-  <footer>
-    Shinra Hub - Apoie os criadores entrando no | Discord: <a href="https://discord.gg/YyXcnEakC9" target="_blank" style="color:#00aaff; text-decoration: none;">discord.gg/Shinra Hub</a>
-  </footer>
-
-  <script>
-    const title = document.getElementById('animated-text');
-    const text = "Shinra Hub";
-    let index = 0;
-
-    function typeEffect() {
-      if (index < text.length) {
-        title.innerHTML += text.charAt(index);
-        index++;
-        setTimeout(typeEffect, 100);
-      }
-    }
-
-    title.innerHTML = "";
-    setTimeout(typeEffect, 500);
-  </script>
-
 </body>
 </html>
